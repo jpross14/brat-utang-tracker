@@ -7,12 +7,16 @@ const LoginPage = () => {
   return (
     <div className="flex flex-col h-screen relative w-full items-center justify-center gap-4">
       <div>
-        <Link href={"/"}>
-          <SquareChevronLeft color="white" size={40} />
+        <Link href={"/"} aria-label="Go back to home page">
+          <SquareChevronLeft
+            color="white"
+            size={40}
+            className="hover:opacity-80 transition-opacity"
+          />
         </Link>
         <LoginForm />
       </div>
-      <div className="absolute  -z-10 bg-main h-full w-full ">
+      <div className="absolute -z-10 bg-main h-full w-full ">
         <Image
           src={"/charli-login.png"}
           fill

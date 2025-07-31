@@ -29,16 +29,16 @@ const LoginForm = () => {
     },
   });
 
-  const [error, setErrors] = useState("");
+  const [error, setError] = useState("");
 
   const onSubmit = async (values: LoginSchemaType) => {
-    setErrors(""); // Reset errors before submission
+    setError(""); // Reset errors before submission
     const response = await login(values);
 
     if (response.success) {
       router.push("/dashboard");
     } else {
-      setErrors(response.message);
+      setError(response.message);
     }
   };
 
@@ -47,8 +47,8 @@ const LoginForm = () => {
   return (
     <div className="text-white relative z-20 flex flex-col md:gap-2 md:w-sm">
       <div className="text-center gap-2 flex flex-col">
-        <h1>sign up</h1>
-        <p>only hot people use this website</p>
+        <h1>log in</h1>
+        <p>welcome back, angel. miss you &lt;3</p>
       </div>
       <Form {...form}>
         <form
@@ -99,7 +99,7 @@ const LoginForm = () => {
           />
 
           <Button className="w-full" disabled={form.formState.isSubmitting}>
-            {form.formState.isSubmitting ? "Signing Up..." : "Sign Up"}
+            {form.formState.isSubmitting ? "Logging In..." : "Log In"}
           </Button>
         </form>
       </Form>
@@ -108,9 +108,9 @@ const LoginForm = () => {
       </p>
 
       <div className="flex gap-1">
-        already have a brat account?{" "}
-        <Link href={"/login"} className="font-bold  hover:underline">
-          <p>Log in</p>
+        don&apos;t have a brat account?{" "}
+        <Link href={"/signup"} className="font-bold  hover:underline">
+          <p>Sign up</p>
         </Link>
       </div>
     </div>

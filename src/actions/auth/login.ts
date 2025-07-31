@@ -6,7 +6,10 @@ import { LoginSchemaType } from "@/schemas/LoginSchema";
 export const login = async (values: LoginSchemaType) => {
   try {
     const client = await createClient();
-    const { data: user, error } = await client.auth.signInWithPassword({
+    const {
+      data: { user },
+      error,
+    } = await client.auth.signInWithPassword({
       email: values.email,
       password: values.password,
     });
@@ -18,7 +21,10 @@ export const login = async (values: LoginSchemaType) => {
     return {
       success: true,
       message: "Login successful",
-      user,
+      user: {
+        id: user?.id,
+        email: user?.email,
+      },
     };
   } catch (error) {
     return {
