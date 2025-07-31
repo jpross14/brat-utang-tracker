@@ -12,7 +12,7 @@ const buttons = [
 
 export default function PageButtons() {
    return (
-      <section className="flex flex-col justify-items-evenly">
+      <section className="flex flex-col justify-items-evenly my-8 *:cursor-pointer">
          {buttons.map(({ name, icon }, idx) => (
          <PageButton key={idx} name={name} icon={icon} />
          ))}

@@ -69,9 +69,10 @@
    }
 
    .glass {
-      background-color: #ffffff;
-      opacity: 50%;
+      background-color: rgba(255, 255, 255, 0.5);
       backdrop-filter: blur(20px);
+      box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.15), 
+                  inset 0px 2px 2px 0px rgba(255, 255, 255, 0.5);
    }
 }
 
