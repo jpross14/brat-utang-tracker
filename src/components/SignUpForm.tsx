@@ -36,6 +36,7 @@ const SignupForm = () => {
   const [error, setErrors] = useState("");
 
   const onSubmit = async (values: SignupSchemaType) => {
+    setErrors(""); // Reset errors before submission
     const response = await createUser(values);
 
     if (response.success) {
@@ -91,7 +92,7 @@ const SignupForm = () => {
             render={({ field }) => (
               <FormItem className="flex flex-col gap-1">
                 <FormLabel>Password</FormLabel>
-                <div className="flex items-center">
+                <div className="relative flex items-center">
                   <FormControl>
                     <Input
                       {...field}
@@ -101,6 +102,7 @@ const SignupForm = () => {
                   <button
                     className="absolute right-3"
                     type="button"
+                    aria-label={showPassword ? "Hide password" : "Show password"}
                     onClick={() => setShowPassword(!showPassword)}
                   >
                     {showPassword ? <EyeOffIcon /> : <EyeIcon />}
@@ -116,7 +118,7 @@ const SignupForm = () => {
             render={({ field }) => (
               <FormItem className="flex flex-col gap-1">
                 <FormLabel>Confirm Password</FormLabel>
-                <div className="flex items-center">
+                <div className="relative flex items-center">
                   <FormControl>
                     <Input
                       {...field}
@@ -126,6 +128,7 @@ const SignupForm = () => {
                   <button
                     className="absolute right-3"
                     type="button"
+                    aria-label={showConfirmPassword ? "Hide password" : "Show password"}
                     onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                   >
                     {showConfirmPassword ? <EyeOffIcon /> : <EyeIcon />}

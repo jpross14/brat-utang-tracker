@@ -16,7 +16,6 @@ export const createUser = async (formData: SignupSchemaType) => {
     }
     return { success: true, message: "" };
   } catch (error) {
-    console.error("Unexpected error during user creation:", error);
     return {
       success: false,
       message: error instanceof Error ? error.message : "Unknown error occurred",

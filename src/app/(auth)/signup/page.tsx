@@ -22,7 +22,7 @@ const Signup = () => {
           className="object-cover opacity-50 object-[30%]"
         />
       </div>
-      <div className="-z-10 absolute inset-0 bg-gradient-to-t from-neutral-950"></div>
+      <div className="-z-5 absolute inset-0 bg-gradient-to-t from-neutral-950/90"></div>
     </div>
   );
 };

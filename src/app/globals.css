@@ -44,7 +44,7 @@
 }
 
 * {
-  @apply border-border outline-ring/50 font-display;
+  @apply font-display;
 }
 body {
   @apply bg-background text-foreground;

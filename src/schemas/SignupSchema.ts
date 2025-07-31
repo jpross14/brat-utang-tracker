@@ -1,4 +1,4 @@
-import z from "zod";
+import {z} from "zod/v4";
 export const SignupSchema = z
   .object({
     username: z.string().min(3, "Username must be at least 3 characters long"),
