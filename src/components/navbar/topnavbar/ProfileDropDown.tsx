@@ -13,7 +13,7 @@ interface Props {
 
 export default function ProfileDropDown({ menuItems }: Props) {
    return (
-      <div className="flex flex-col glass h-50 w-75 absolute overflow-hidden top-16 right-15 rounded-4xl p-3">
+      <div className="flex flex-col glass h-51 w-75 absolute overflow-hidden top-16 right-15 rounded-4xl p-3">
          <section className="flex pl-2">
             <div className="glass flex size-20 rounded-[50%] justify-center items-center">
                <Image
@@ -36,7 +36,7 @@ export default function ProfileDropDown({ menuItems }: Props) {
          <section className="*:blur-[0.5px] pl-3">
             {menuItems.map((item) => (
             <Link key={item.label} href={item.href}>
-               <button className="flex hover:not-active:text-[#FF8829] pl-1 text-sm w-[50%] hover:scale-103 transition-all cursor-pointer my-0.5">
+               <button className="flex hover:not-active:text-[#FF8829] pl-1 text-sm w-[50%] hover:scale-103 transition-all cursor-pointer my-1">
                {item.label}
                </button>
             </Link>

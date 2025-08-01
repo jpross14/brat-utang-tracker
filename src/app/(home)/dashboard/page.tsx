@@ -1,8 +1,8 @@
 import React from 'react'
 import Image from "next/image";
 import { Archivo_Narrow } from "next/font/google";
-import SideNavBar from "@/components/navbar/SideNavBar";
-import TopNavBar from "@/components/navbar/TopNavBar";
+import SideNavBar from "@/components/navbar/sidenavbar/SideNavBar";
+import TopNavBar from "@/components/navbar/topnavbar/TopNavBar";
 
 const archivoNarrow = Archivo_Narrow({
   variable: "--font-archivo-narrow",
