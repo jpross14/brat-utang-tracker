@@ -3,7 +3,7 @@
 import { Input } from "./ui/input";
 import { Checkbox } from "./ui/checkbox";
 import { Button } from "./ui/button";
-import { createUser } from "@/actions/auth/signup";
+import { signUp } from "@/actions/auth/signup";
 import Link from "next/link";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
 import { useState } from "react";
@@ -33,16 +33,18 @@ const SignupForm = () => {
     },
   });
 
-  const [error, setErrors] = useState("");
+  const [error, setError] = useState("");
 
   const onSubmit = async (values: SignupSchemaType) => {
-    setErrors(""); // Reset errors before submission
-    const response = await createUser(values);
+    setError(""); // Reset errors before submission
+    const response = await signUp(values);
+
+    console.log("Signup response:", response);
 
     if (response.success) {
       router.push("/dashboard");
     } else {
-      setErrors(response.message);
+      setError(response.message);
     }
   };
 
