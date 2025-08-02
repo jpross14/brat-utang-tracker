@@ -15,11 +15,16 @@ const DashboardPage = () => {
   };
 
   return (
-    <div>
-      <Button onClick={handleLogout}>
-        <p>Log out</p>
-      </Button>
-    </div>
+    <main className={`relative h-screen justify-center items-center p-7`}>
+      <div className="glass blur-[1px] w-fit h-18 text-5xl font-medium flex items-center rounded-[1.75rem] px-5">
+        <span className="text-center">welcome, julia apples</span>
+      </div>
+      <div>
+        <Button onClick={handleLogout}>
+          <p>Log out</p>
+        </Button>
+      </div>
+    </main>
   );
 };
 

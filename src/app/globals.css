@@ -77,15 +77,34 @@ button {
     box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.25);
   }
 
-  .glass {
-    background-color: #ffffff;
-    opacity: 50%;
-    backdrop-filter: blur(20px);
-    box-shadow: 0px 6px 12px 2px rgba(0, 0, 0, 0.25);
-    box-shadow: 0px 4px 4px 0px rgba(255, 255, 255, 0.5);
+  .shine {
+    box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.5);
   }
-  .error {
-    color: var(--destructive);
+
+  .shadow-soft-shine {
+    box-shadow:
+      0px 3px 3px 0px rgba(0, 0, 0, 0.15),
+      inset 0px 2px 2px 0px rgba(255, 255, 255, 0.5);
+  }
+
+  .hover\:shadow-soft-shine:hover {
+    box-shadow:
+      0px 3px 3px 0px rgba(0, 0, 0, 0.15),
+      inset 0px 2px 2px 0px rgba(255, 255, 255, 0.5);
+  }
+
+  .shadow-reg-shine {
+    box-shadow:
+      0px 6px 12px 2px rgba(0, 0, 0, 0.25),
+      inset 0px 2px 2px 0px rgba(255, 255, 255, 0.5);
+  }
+
+  .glass {
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    box-shadow:
+      0px 3px 3px 0px rgba(0, 0, 0, 0.15),
+      inset 0px 2px 2px 0px rgba(255, 255, 255, 0.5);
   }
 }
 
