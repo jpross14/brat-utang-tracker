@@ -1,3 +1,4 @@
+import Link from "next/link";
 import DashboardPage from "./(home)/dashboard/page";
 
 
@@ -7,8 +8,10 @@ export default function Home() {
    //    <Link href={"/login"}></Link>
    //    <Link href={"/signup"}></Link>
    //  </div>
-   <div className={`flex `}>
-      <DashboardPage/>
+   <div className={``}>
+      <Link href="/dashboard">
+         <button>hey</button>
+      </Link>
    </div>
   );
 }
