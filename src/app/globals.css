@@ -5,8 +5,11 @@
 @theme inline {
   --drop-shadow-base: 0px 9px 12px 2px rgba(0, 0, 0, 0.25);
   --color-main: #8ace00;
+  --drop-shadow-base: 0px 9px 12px 2px rgba(0, 0, 0, 0.25);
+  --color-main: #8ace00;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --font-display: var(--font-archivo-narrow);
   --font-display: var(--font-archivo-narrow);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -58,7 +61,7 @@ h2 {
   @apply text-6xl font-semibold;
 }
 h3 {
-  @apply text-5xl font-semibold;
+  @apply text-6xl font-semibold;
 }
 
 h4 {
@@ -72,7 +75,13 @@ button {
   .shadow-reg {
     box-shadow: 0px 6px 12px 2px rgba(0, 0, 0, 0.25);
   }
+  .shadow-reg {
+    box-shadow: 0px 6px 12px 2px rgba(0, 0, 0, 0.25);
+  }
 
+  .shadow-soft {
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.25);
+  }
   .shadow-soft {
     box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.25);
   }
@@ -80,7 +89,15 @@ button {
   .shine {
     box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.5);
   }
+  .shine {
+    box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.5);
+  }
 
+  .shadow-soft-shine {
+    box-shadow:
+      0px 3px 3px 0px rgba(0, 0, 0, 0.15),
+      inset 0px 2px 2px 0px rgba(255, 255, 255, 0.5);
+  }
   .shadow-soft-shine {
     box-shadow:
       0px 3px 3px 0px rgba(0, 0, 0, 0.15),
@@ -92,13 +109,30 @@ button {
       0px 3px 3px 0px rgba(0, 0, 0, 0.15),
       inset 0px 2px 2px 0px rgba(255, 255, 255, 0.5);
   }
+  .hover\:shadow-soft-shine:hover {
+    box-shadow:
+      0px 3px 3px 0px rgba(0, 0, 0, 0.15),
+      inset 0px 2px 2px 0px rgba(255, 255, 255, 0.5);
+  }
 
   .shadow-reg-shine {
     box-shadow:
       0px 6px 12px 2px rgba(0, 0, 0, 0.25),
       inset 0px 2px 2px 0px rgba(255, 255, 255, 0.5);
   }
+  .shadow-reg-shine {
+    box-shadow:
+      0px 6px 12px 2px rgba(0, 0, 0, 0.25),
+      inset 0px 2px 2px 0px rgba(255, 255, 255, 0.5);
+  }
 
+  .glass {
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    box-shadow:
+      0px 3px 3px 0px rgba(0, 0, 0, 0.15),
+      inset 0px 2px 2px 0px rgba(255, 255, 255, 0.5);
+  }
   .glass {
     background-color: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(10px);
