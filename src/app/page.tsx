@@ -1,7 +1,5 @@
-import Link from "next/link";
-import { Archivo_Narrow } from "next/font/google";
-
 import DashboardPage from "./(home)/dashboard/page";
+
 
 export default function Home() {
   return (
@@ -9,6 +7,8 @@ export default function Home() {
    //    <Link href={"/login"}></Link>
    //    <Link href={"/signup"}></Link>
    //  </div>
-   <DashboardPage/>
+   <div className={`flex `}>
+      <DashboardPage/>
+   </div>
   );
 }

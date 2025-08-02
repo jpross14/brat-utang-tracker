@@ -1,15 +1,18 @@
 import { ChevronRight, type LucideIcon } from "lucide-react";
+import Link from "next/link";
 
 interface Props {
   name: string;
   icon: LucideIcon; // The actual icon component
+  href: string;
 }
 
-export default function PageButton({ name, icon: Icon }: Props) {
+export default function PageButton({ name, icon: Icon, href }: Props) {
    return (
-      <button className="group flex h-10 w-40 p-1 ml-4 my-0.5 items-center *:blur-[0.75px] rounded-2xl 
+      <Link className="group flex h-10 w-40 p-1 ml-4 my-0.5 items-center *:blur-[0.75px] rounded-2xl 
          hover:bg-white/15 hover:backdrop-blur-xs hover:not-active:scale-105 transition-all 
          active:bg-[#8ACE00]/60 hover:shadow-soft-shine"
+         href={href}
       >
          <ChevronRight className="opacity-0 group-active:opacity-100"/>
          <Icon
@@ -18,6 +21,6 @@ export default function PageButton({ name, icon: Icon }: Props) {
             className="mr-2 group-hover:not-group-active:stroke-[#FF8829]"
          />
          <span className="text-2xl group-hover:not-group-active:text-[#FF8829]">{name}</span>
-      </button>
+      </Link>
    );
 }
