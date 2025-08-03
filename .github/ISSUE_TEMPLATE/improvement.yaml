@@ -1,0 +1,18 @@
+name: Improvement Report
+description: Create an improvement report from the application
+labels: 
+  - improvement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please fill out the following sections to help us understand the improvement you are suggesting. If you have any screenshots or additional context, feel free to include them as well.
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A detailed description of the bug, including steps to reproduce it
+      placeholder: |
+        Add a button to the main screen for quicker access on the create debt form.
+    validations:
+      required: true
