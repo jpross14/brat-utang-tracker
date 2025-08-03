@@ -1,11 +1,24 @@
 import LoginForm from "@/components/LoginForm";
+import UnauthorizedToast from "@/components/UnauthorizedToast";
 import { SquareChevronLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { toast } from "sonner";
 
-const LoginPage = () => {
+interface LoginPageProps {
+  searchParams: Promise<{
+    "not-logged-in"?: string | undefined;
+  }>;
+}
+
+const LoginPage = async ({ searchParams }: LoginPageProps) => {
+  const params = await searchParams;
+
+  console.log("LoginPage params:", params);
+
   return (
     <div className="flex flex-col h-screen relative w-full items-center justify-center gap-4">
+      {params && params["not-logged-in"] === "true" && <UnauthorizedToast />}
       <div>
         <Link href={"/"} aria-label="Go back to home page">
           <SquareChevronLeft
