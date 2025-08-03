@@ -1,20 +1,20 @@
-# Feature Pull Request
+## Feature Pull Request
 
-## Description
+### Description
 
 Brief description of the feature and what it accomplishes.
 
-## Linear Issue
+### Linear Issue
 
 Resolves: SUG-1234, SUG-5678 (Replace with actual issue numbers)
 
-## Screenshots/Demo
+### Screenshots/Demo
 
 If applicable, add screenshots or video links
 
-## Implementation Checklist
+### Implementation Checklist
 
-Create your own checklist based on your current progress on the branch. If multiple people are working on this same branch, add a mention to the person responsible for each task.
+Create your own checklist based on your current progress on the branch. If multiple people are working on this same branch, start with a mention and list down your tasks.
 
 examples (Remove if not applicable):
 
