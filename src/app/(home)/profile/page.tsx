@@ -1,11 +1,18 @@
-import React from 'react'
+import ProfilePage from "@/components/profile/ProfilePage";
+import { createClient } from "@/lib/supabase/server";
+import React from "react";
 
-export default function ProfilePage() {
-  return (
-    <main className={`relative h-screen justify-center items-center p-7`}>
-      <div className="glass blur-[1px] w-fit h-18 text-5xl font-medium flex items-center rounded-[1.75rem] px-5">
-         <span className="text-center">Profile</span>
-      </div>
-   </main>
-  );
-};
+export default async function Profile() {
+  const supabase = await createClient();
+  const {
+    data: { user },
+    error,
+  } = await supabase.auth.getUser();
+
+  if (error || !user) {
+    console.error("Error fetching user:", error);
+    return <div>Error fetching user</div>;
+  }
+
+  return <ProfilePage user={user} credits={10} debts={5} friends={15} />;
+}
