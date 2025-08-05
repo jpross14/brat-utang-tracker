@@ -29,7 +29,6 @@ const SignupForm = () => {
       email: "",
       password: "",
       confirmPassword: "",
-      rememberMe: false,
     },
   });
 
@@ -137,19 +136,6 @@ const SignupForm = () => {
                   </button>
                 </div>
                 <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="rememberMe"
-            render={({ field }) => (
-              <FormItem className="flex items-center gap-2">
-                <Checkbox
-                  checked={field.value}
-                  onCheckedChange={field.onChange}
-                />
-                <FormLabel className="cursor-pointer">Remember Me</FormLabel>
               </FormItem>
             )}
           />

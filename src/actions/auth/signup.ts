@@ -16,7 +16,6 @@ export const signUp = async (formData: SignupSchemaType) => {
       options: {
         data: {
           displayName: formData.username,
-          rememberMe: formData.rememberMe,
         },
       },
     });
@@ -24,10 +23,7 @@ export const signUp = async (formData: SignupSchemaType) => {
       console.error("Error creating user:", error);
       throw error;
     }
-    const createUserResponse = await createUser(
-      user?.id,
-      formData.username,
-    );
+    const createUserResponse = await createUser(user?.id, formData.username);
     if (!createUserResponse.success) {
       throw new Error(createUserResponse.message);
     }

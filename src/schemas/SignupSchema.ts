@@ -7,7 +7,6 @@ export const SignupSchema = z
     confirmPassword: z
       .string()
       .min(8, "Confirm Password must be at least 8 characters long"),
-    rememberMe: z.boolean(),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "Passwords do not match",
