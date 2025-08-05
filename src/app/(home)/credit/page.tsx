@@ -18,21 +18,20 @@ export default async function CreditPage() {
     .from("Transactions")
     .select(
       `    
-    id,
-    created_at,
-    debtor,
-    creditor:
-      Users!creditor (
+      id,
+      created_at,
+      debtor: Users!creditor (
         id,
         username,
         display_name
-        ),
-    amount,
-    transaction_due,
-    paid
-    `,
+      ),
+      creditor,
+      amount,
+      transaction_due,
+      paid
+      `,
     )
-    // .eq("creditor", user.id)
+    .eq("creditor", user.id)
     .order("transaction_due", { ascending: true });
 
   if (!transactions) {

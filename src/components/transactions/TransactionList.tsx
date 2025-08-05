@@ -1,11 +1,23 @@
-import { TransactionWithCreditor } from "@/lib/supabase/dbutils";
+import {
+  TransactionWithCreditorDetails,
+  TransactionWithDebtorDetails,
+} from "@/lib/supabase/dbutils";
 import React from "react";
 import TransactionItem from "./TransactionItem";
 
-interface TransactionListProps {
-  type: "credit" | "debt";
-  transactions: TransactionWithCreditor[];
+interface CreditTransactionListProps {
+  type: "credit";
+  transactions: TransactionWithDebtorDetails[];
 }
+
+interface DebtTransactionListProps {
+  type: "debt";
+  transactions: TransactionWithCreditorDetails[];
+}
+
+type TransactionListProps =
+  | CreditTransactionListProps
+  | DebtTransactionListProps;
 
 const TransactionList = ({ type, transactions }: TransactionListProps) => {
   return (
@@ -31,7 +43,11 @@ const TransactionList = ({ type, transactions }: TransactionListProps) => {
           </tr>
         )}
         {transactions.map((transaction) => (
-          <TransactionItem key={transaction.id} transaction={transaction} />
+          <TransactionItem
+            key={transaction.id}
+            transaction={transaction}
+            type={type}
+          />
         ))}
       </tbody>
     </table>

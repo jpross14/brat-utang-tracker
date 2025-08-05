@@ -1,13 +1,17 @@
-import { TransactionWithCreditor } from "@/lib/supabase/dbutils";
+import {
+  TransactionWithCreditorDetails,
+  TransactionWithDebtorDetails,
+} from "@/lib/supabase/dbutils";
 import React from "react";
 import { cn } from "@/lib/utils";
 import ActionButton from "./ActionButton";
 
 interface TransactionItemProps {
-  transaction: TransactionWithCreditor;
+  type: "credit" | "debt";
+  transaction: TransactionWithCreditorDetails | TransactionWithDebtorDetails;
 }
 
-const TransactionItem = ({ transaction }: TransactionItemProps) => {
+const TransactionItem = ({ transaction, type }: TransactionItemProps) => {
   const formatDate = (date: string) => {
     const options: Intl.DateTimeFormatOptions = {
       year: "numeric",
@@ -18,6 +22,11 @@ const TransactionItem = ({ transaction }: TransactionItemProps) => {
       .toLocaleDateString("en-US", options)
       .replace(/\//g, " - ");
   };
+
+  const friend =
+    type === "credit"
+      ? (transaction as TransactionWithDebtorDetails).debtor
+      : (transaction as TransactionWithCreditorDetails).creditor;
 
   return (
     <tr key={transaction.id}>
@@ -33,11 +42,9 @@ const TransactionItem = ({ transaction }: TransactionItemProps) => {
       </td>
       <td className="glass px-4">
         <div className="flex flex-col py-2 text-start">
-          <h5>{transaction.creditor.display_name}</h5>
+          <h5>{friend.display_name}</h5>
           <span className="text-muted-foreground text-sm">
-            {transaction.creditor.username
-              ? ` (@${transaction.creditor.username})`
-              : ""}
+            {friend.username ? ` (@${friend.username})` : ""}
           </span>
         </div>
       </td>
@@ -68,10 +75,7 @@ const TransactionItem = ({ transaction }: TransactionItemProps) => {
 
       <td className="glass h-full w-6 rounded-r-3xl px-2 pr-4">
         <div className="flex h-full w-full items-center justify-center">
-          <ActionButton
-            transactionId={transaction.id}
-            friendId={transaction.creditor.id}
-          />
+          <ActionButton transactionId={transaction.id} friendId={friend.id} />
         </div>
       </td>
     </tr>
