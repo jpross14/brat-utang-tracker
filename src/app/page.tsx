@@ -8,7 +8,7 @@ export default function Home() {
       <Link href={"/dashboard"} 
             className="flex h-20 w-fit glass items-center justify-center rounded-full text-4xl px-10 hover:brightness-75"
       >
-         <p>shortcut to dashboard</p>
+         <p className="blur-[1px]">shortcut to dashboard</p>
       </Link>
     </div>
   );

@@ -3,6 +3,7 @@ import { useAutoCloseDropdown } from "@/hooks/useAutoCloseDropDown";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import Image from "next/image";
 import ProfileDropDown from "./ProfileDropDown";
+import { example_user } from "@/constants/sample_data";
 
 interface Props {
   initialOpen: boolean;
@@ -46,7 +47,7 @@ export default function ProfileButton({initialOpen = false}: Props) {
                />
             </div>
             <span className="blur-[0.75px] text-xl group-hover:not-group-active:text-[#FF8829] hidden md:inline-block">
-               julia apples
+               {example_user.display_name}
             </span>
          </button>
 
