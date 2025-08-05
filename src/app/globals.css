@@ -64,6 +64,10 @@ h3 {
 h4 {
   @apply text-5xl font-semibold;
 }
+
+h5 {
+  @apply text-4xl font-semibold;
+}
 button {
   @apply cursor-pointer;
 }

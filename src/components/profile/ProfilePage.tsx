@@ -10,18 +10,17 @@ interface ProfilePageProps {
 }
 const ProfilePage = ({ friends, debts, credits, user }: ProfilePageProps) => {
   return (
-    <main className="p-7">
-      <div className="glass blur-[1px] w-fit h-18 text-5xl font-medium flex items-center rounded-[1.75rem] px-5">
+    <main className="h-full p-7 space-y-5">
+      <div className="glass flex h-18 w-fit items-center rounded-[1.75rem] px-5 text-5xl font-medium blur-[1px]">
         <span className="text-center">Profile</span>
       </div>
       <div className="flex">
-    <ProfileCard
-    
-      friends={friends}
-      debts={debts}
-      credits={credits}
-      user={user}
-    />
+        <ProfileCard
+          friends={friends}
+          debts={debts}
+          credits={credits}
+          user={user}
+        />
       </div>
     </main>
   );
