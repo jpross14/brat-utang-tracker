@@ -20,7 +20,7 @@ export default async function CreditPage() {
       `    
       id,
       created_at,
-      debtor: Users!creditor (
+      debtor: Users!debtor (
         id,
         username,
         display_name
