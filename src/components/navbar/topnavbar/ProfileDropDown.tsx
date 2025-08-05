@@ -26,7 +26,7 @@ export default function ProfileDropDown({ menuItems }: Props) {
             </div>
 
             <div className="flex flex-col *:blur-[0.75px] pl-4 pt-2">
-               <h1 className="text-2xl font-bold">Julia Apples</h1>
+               <span className="text-2xl font-bold">Julia Apples</span>
                <h5>@julia_apples</h5>
             </div>
          </section>
