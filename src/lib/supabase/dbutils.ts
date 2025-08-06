@@ -12,3 +12,6 @@ export interface TransactionWithDebtorDetails
   extends Omit<DBType<"Transactions">, "debtor"> {
   debtor: Pick<DBType<"Users">, "id" | "username" | "display_name">;
 }
+
+export type EnumType<T extends keyof Database["public"]["Enums"]> =
+  Database["public"]["Enums"][T];

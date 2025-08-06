@@ -33,10 +33,7 @@ const TransactionItem = ({ transaction, type }: TransactionItemProps) => {
       <td className="glass h-full w-6 rounded-l-3xl px-2 pl-4">
         <div className="flex h-full w-full items-center justify-center">
           <div
-            className={cn(
-              transaction.paid ? "text-green-500" : "text-red-500",
-              "h-4 w-4 rounded-full border-2 border-neutral-800",
-            )}
+            className={cn("h-4 w-4 rounded-full border-2 border-neutral-800")}
           />
         </div>
       </td>
@@ -63,7 +60,7 @@ const TransactionItem = ({ transaction, type }: TransactionItemProps) => {
           className={cn(
             "glass px-3 py-3 text-center",
             item.data === "transaction_due" &&
-              !transaction.paid &&
+              transaction.status === "Unpaid" &&
               transaction.transaction_due &&
               new Date(transaction.transaction_due) < new Date() &&
               "text-red-500",
