@@ -34,7 +34,7 @@ export default async function CreditPage() {
     .eq("creditor", user.id)
     .order("transaction_due", { ascending: true });
 
-  if (!transactions) {
+  if (!transactions || transactions.length === 0) {
     return <div>No transactions found.</div>;
   }
 

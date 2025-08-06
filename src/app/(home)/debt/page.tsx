@@ -9,7 +9,7 @@ export default async function DebtPage() {
   } = await client.auth.getUser();
 
   if (!user) {
-    return <div>Please log in to view your credits.</div>;
+    return <div>Please log in to view your debts.</div>;
   }
 
   const { data: transactions } = await client

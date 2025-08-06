@@ -35,7 +35,6 @@ const TransactionList = ({ type, transactions }: TransactionListProps) => {
         {transactions.length === 0 && (
           <tr>
             <td colSpan={5} className="text-center">
-              No transactions found.
               {type === "credit"
                 ? "You have no credits."
                 : "You have no debts."}
