@@ -12,8 +12,6 @@ export default async function CreditPage() {
     return <div>Please log in to view your credits.</div>;
   }
 
-  console.log("User ID:", user.id);
-
   const { data: transactions } = await client
     .from("Transactions")
     .select(
