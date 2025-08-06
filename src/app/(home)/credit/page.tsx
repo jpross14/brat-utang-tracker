@@ -28,7 +28,9 @@ export default async function CreditPage() {
       creditor,
       amount,
       transaction_due,
-      paid
+      status,
+      request_by,
+      date_paid
       `,
     )
     .eq("creditor", user.id)

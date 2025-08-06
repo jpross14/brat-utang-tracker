@@ -26,7 +26,9 @@ export default async function DebtPage() {
       ),
       amount,
       transaction_due,
-      paid
+      status,
+      request_by,
+      date_paid
       `,
     )
     .eq("debtor", user.id)
