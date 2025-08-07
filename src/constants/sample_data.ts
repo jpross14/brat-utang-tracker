@@ -1,5 +1,6 @@
 export const example_user = {
    display_name : "julia apples",
+   username: "julia_apples360",
    total_debt : 1500,
    debtors : [
       {name: "Ashley", amount: 1500},
