@@ -6,23 +6,22 @@ import React from "react";
 
 const Signup = () => {
   return (
-    <div className="flex flex-col h-screen relative w-full items-center justify-center gap-4">
+    <div className="relative flex h-screen w-full flex-col items-center justify-center gap-4">
       <div>
         <Link href={"/"}>
           <SquareChevronLeft color="white" size={40} />
         </Link>
         <SignupForm />
       </div>
-      <div className="absolute  -z-10 bg-main h-full w-full ">
+      <div className="bg-main absolute -z-10 h-full w-full">
         <Image
           src={"/charli-signup.png"}
           fill
-
           alt="Charli Signup"
-          className="object-cover opacity-50 object-[30%]"
+          className="object-cover object-[30%] opacity-50"
         />
       </div>
-      <div className="-z-5 absolute inset-0 bg-gradient-to-t from-neutral-950/90"></div>
+      <div className="absolute inset-0 -z-5 bg-gradient-to-t from-neutral-950/90"></div>
     </div>
   );
 };

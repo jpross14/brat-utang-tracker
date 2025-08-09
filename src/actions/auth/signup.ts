@@ -2,7 +2,6 @@
 
 import { createClient } from "@/lib/supabase/server";
 import { SignupSchemaType } from "@/schemas/SignupSchema";
-import { createUser } from "../db/user";
 
 export const signUp = async (formData: SignupSchemaType) => {
   try {
@@ -22,10 +21,6 @@ export const signUp = async (formData: SignupSchemaType) => {
     if (error || !user) {
       console.error("Error creating user:", error);
       throw error;
-    }
-    const createUserResponse = await createUser(user?.id, formData.username);
-    if (!createUserResponse.success) {
-      throw new Error(createUserResponse.message);
     }
 
     return { success: true, message: "" };
