@@ -1,3 +1,4 @@
+"use client";
 import { BanknoteArrowDown, Bell, CreditCard, House, User, Users } from "lucide-react";
 import PageButton from "./PageButton";
 
