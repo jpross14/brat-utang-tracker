@@ -14,19 +14,121 @@ export type Database = {
   }
   public: {
     Tables: {
+      Requests: {
+        Row: {
+          amount: number
+          confirmed_at: string | null
+          created_at: string | null
+          creditor: string
+          debtor: string
+          id: number
+          requestor: Database["public"]["Enums"]["Requestor"]
+          status: Database["public"]["Enums"]["Debt Request Status"]
+        }
+        Insert: {
+          amount?: number
+          confirmed_at?: string | null
+          created_at?: string | null
+          creditor: string
+          debtor: string
+          id?: number
+          requestor?: Database["public"]["Enums"]["Requestor"]
+          status?: Database["public"]["Enums"]["Debt Request Status"]
+        }
+        Update: {
+          amount?: number
+          confirmed_at?: string | null
+          created_at?: string | null
+          creditor?: string
+          debtor?: string
+          id?: number
+          requestor?: Database["public"]["Enums"]["Requestor"]
+          status?: Database["public"]["Enums"]["Debt Request Status"]
+        }
+        Relationships: [
+          {
+            foreignKeyName: "Debt Requests_creditor_fkey"
+            columns: ["creditor"]
+            isOneToOne: false
+            referencedRelation: "Users"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "Debt Requests_debtor_fkey"
+            columns: ["debtor"]
+            isOneToOne: false
+            referencedRelation: "Users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      Transactions: {
+        Row: {
+          amount: number
+          created_at: string
+          creditor: string
+          date_paid: string | null
+          debtor: string
+          id: string
+          request_by: Database["public"]["Enums"]["Requestor"] | null
+          status: Database["public"]["Enums"]["Transaction Status"]
+          transaction_due: string | null
+        }
+        Insert: {
+          amount?: number
+          created_at?: string
+          creditor: string
+          date_paid?: string | null
+          debtor: string
+          id?: string
+          request_by?: Database["public"]["Enums"]["Requestor"] | null
+          status?: Database["public"]["Enums"]["Transaction Status"]
+          transaction_due?: string | null
+        }
+        Update: {
+          amount?: number
+          created_at?: string
+          creditor?: string
+          date_paid?: string | null
+          debtor?: string
+          id?: string
+          request_by?: Database["public"]["Enums"]["Requestor"] | null
+          status?: Database["public"]["Enums"]["Transaction Status"]
+          transaction_due?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "Debts_creditor_fkey"
+            columns: ["creditor"]
+            isOneToOne: false
+            referencedRelation: "Users"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "Debts_debtor_fkey"
+            columns: ["debtor"]
+            isOneToOne: false
+            referencedRelation: "Users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       Users: {
         Row: {
           created_at: string
+          display_name: string | null
           id: string
           username: string | null
         }
         Insert: {
           created_at?: string
+          display_name?: string | null
           id: string
           username?: string | null
         }
         Update: {
           created_at?: string
+          display_name?: string | null
           id?: string
           username?: string | null
         }
@@ -40,7 +142,9 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      "Debt Request Status": "pending" | "accepted" | "declined"
+      Requestor: "Debtor" | "Creditor"
+      "Transaction Status": "Pending" | "Unpaid" | "Paid"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -167,6 +271,10 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      "Debt Request Status": ["pending", "accepted", "declined"],
+      Requestor: ["Debtor", "Creditor"],
+      "Transaction Status": ["Pending", "Unpaid", "Paid"],
+    },
   },
 } as const
