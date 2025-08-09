@@ -21,9 +21,9 @@ export default function PageButton({ name, icon: Icon, href }: Props) {
             <Icon
                 size={24}
                 strokeWidth={2}
-                className={`${pathname === href ? "" : "group-hover:not-group-active:stroke-[#FF8829]"} mr-2`}
+                className={`${pathname === href ? "" : "group-hover:stroke-[#FF8829]"} mr-2`}
             />
-            <span className={`${pathname === href ? "" : "group-hover:not-group-active:text-[#FF8829]"} text-2xl`}>
+            <span className={`${pathname === href ? "" : "group-hover:text-[#FF8829]"} text-2xl`}>
                 {name}
             </span>
         </Link>
