@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input"
 import { Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-interface SearchBarProps {
+interface SearchBarProps<T> {
     onSearch: (search: string) => void;
     search: string;
     placeholder?: string;
@@ -15,7 +15,7 @@ interface SearchBarProps {
     className?: string;
 };
 
-const SearchBar = ({
+const SearchBar = <T,>({
     onSearch,
     search,
     placeholder = "Search...",
@@ -24,7 +24,7 @@ const SearchBar = ({
     filterFn,
     iconSize = 20,
     className,
-}: SearchBarProps) => {
+}: SearchBarProps<T>) => {
 
     const defaultFilterFn = useCallback(
         (item: T, term: string) =>
