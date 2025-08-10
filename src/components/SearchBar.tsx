@@ -13,6 +13,8 @@ interface SearchBarProps<T> {
     filterFn?: (item: T, search: string) => boolean;
     iconSize?: number;
     className?: string;
+    inputClassName?: string;
+    iconClassName?: string;
 };
 
 const SearchBar = <T,>({
@@ -24,6 +26,8 @@ const SearchBar = <T,>({
     filterFn,
     iconSize = 20,
     className,
+    inputClassName,
+    iconClassName,
 }: SearchBarProps<T>) => {
 
     const defaultFilterFn = useCallback(
@@ -49,7 +53,7 @@ const SearchBar = <T,>({
     }, [filteredData, onFilter])
 
     return (
-        <div className="relative">
+        <div className={cn("relative", className)}>
             <Input
                 type='text'
                 value={search}
@@ -58,13 +62,14 @@ const SearchBar = <T,>({
                 className={cn(
                     "text-black/50 w-3xs h-8 rounded-[15px] pl-4 pr-10",
                     "tracking-tighter shadow-reg focus:outline-1 truncate focus:outline-green-300)",
-                    className
+                    inputClassName
                 )}
             />
             <Search
                 size={iconSize}
                 className={cn(
-                    "absolute right-3 top-[6px] text-black opacity-50 font-bold"
+                    "absolute right-3 top-[6px] text-black opacity-50 font-bold",
+                    iconClassName
                 )}
             />
         </div>
