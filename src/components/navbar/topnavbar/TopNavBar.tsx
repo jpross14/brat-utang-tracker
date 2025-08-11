@@ -3,7 +3,7 @@ import Image from "next/image";
 import ProfileButton from "./ProfileButton";
 
 const menuItems = [
-    { label: "Edit Profile", href: "/profile" },
+    { label: "View Profile", href: "/profile" },
     { label: "Reset Password", href: "/profile" },
     { label: "Log Out", href: "/" }
 ];
