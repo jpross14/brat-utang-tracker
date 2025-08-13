@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function FriendsPage() {
+export default function PeoplePage() {
   return (
     <main className={`relative h-screen justify-center items-center p-7`}>
       <div className="glass blur-[1px] w-fit h-18 text-5xl font-medium flex items-center rounded-[1.75rem] px-5">
-         <span className="text-center">Friends</span>
+         <span className="text-center">People</span>
       </div>
    </main>
   );
