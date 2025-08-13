@@ -18,16 +18,8 @@ export default async function CreditPage() {
       `    
       id,
       created_at,
-      debtor: Users!debtor (
-        id,
-        username,
-        display_name
-      ),
-      creditor,
       amount,
       transaction_due,
-      status,
-      request_by,
       date_paid
       `,
     )

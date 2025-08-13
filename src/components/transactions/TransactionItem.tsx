@@ -23,11 +23,6 @@ const TransactionItem = ({ transaction, type }: TransactionItemProps) => {
       .replace(/\//g, " - ");
   };
 
-  const friend =
-    type === "credit"
-      ? (transaction as TransactionWithDebtorDetails).debtor
-      : (transaction as TransactionWithCreditorDetails).creditor;
-
   return (
     <tr key={transaction.id}>
       <td className="glass h-full w-6 rounded-l-3xl px-2 pl-4">
@@ -39,9 +34,9 @@ const TransactionItem = ({ transaction, type }: TransactionItemProps) => {
       </td>
       <td className="glass px-4">
         <div className="flex flex-col py-2 text-start">
-          <h5>{friend.display_name}</h5>
+          <h5>{transaction.purpose_of_transaction}</h5>
           <span className="text-muted-foreground text-sm">
-            {friend.username ? ` (@${friend.username})` : ""}
+            {transaction.transactor.name}
           </span>
         </div>
       </td>
