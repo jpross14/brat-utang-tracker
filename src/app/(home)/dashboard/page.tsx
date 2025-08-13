@@ -1,7 +1,10 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import { createClient } from "@/lib/supabase/client";
 import React from "react";
+import StatsCard from "@/components/dashboard/statsCard";
+import PageBase from "@/components/pages/pageBase";
+// import { Button } from "@/components/ui/button";
+import { createClient } from "@/lib/supabase/client";
+import { example_user } from "@/constants/sample_data";
 
 const DashboardPage = () => {
   const handleLogout = async () => {
@@ -15,16 +18,22 @@ const DashboardPage = () => {
   };
 
   return (
-    <main className={`relative h-screen justify-center items-center p-7`}>
-      <div className="glass blur-[1px] w-fit h-18 text-5xl font-medium flex items-center rounded-[1.75rem] px-5">
-        <span className="text-center">welcome, julia apples</span>
-      </div>
-      <div>
-        <Button onClick={handleLogout}>
-          <p>Log out</p>
-        </Button>
-      </div>
-    </main>
+    <PageBase title={`welcome, ${example_user.display_name}`}>
+      <section className="absolute top-30 flex space-x-15">
+        <StatsCard cardType="debt" pageType="dashboard" data={example_user} />
+        <StatsCard cardType="credit" pageType="dashboard" data={example_user} />
+      </section>
+    </PageBase>
+    //  <main className={`relative h-screen justify-center items-center p-7`}>
+    //    <div className="glass blur-[1px] w-fit h-18 text-5xl font-medium flex items-center rounded-[1.75rem] px-5">
+    //      <span className="text-center">welcome, julia apples</span>
+    //    </div>
+    //    <div>
+    //      <Button onClick={handleLogout}>
+    //        <p>Log out</p>
+    //      </Button>
+    //    </div>
+    //  </main>
   );
 };
 
