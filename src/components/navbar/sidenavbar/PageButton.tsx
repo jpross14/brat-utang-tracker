@@ -1,5 +1,6 @@
 import { ChevronRight, type LucideIcon } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface Props {
   name: string;
@@ -8,19 +9,30 @@ interface Props {
 }
 
 export default function PageButton({ name, icon: Icon, href }: Props) {
-   return (
-      <Link className="group flex h-10 w-40 p-1 ml-4 my-0.5 items-center *:blur-[0.75px] rounded-2xl 
-         hover:bg-white/15 hover:backdrop-blur-xs hover:not-active:scale-105 transition-all 
-         active:bg-[#8ACE00]/60 hover:shadow-soft-shine"
-         href={href}
+  const pathname = usePathname();
+
+  return (
+    <Link
+      className={`group my-0.5 ml-4 flex h-10 w-40 items-center rounded-2xl p-1 transition-all *:blur-[0.75px] ${
+        pathname === href
+          ? "shadow-soft-shine bg-[#8ACE00]/60"
+          : "hover:shadow-soft-shine hover:bg-white/15 hover:backdrop-blur-xs hover:not-active:scale-105"
+      } `}
+      href={href}
+    >
+      <ChevronRight
+        className={`${pathname === href ? "opacity-100" : "opacity-0"}`}
+      />
+      <Icon
+        size={24}
+        strokeWidth={2}
+        className={`${pathname === href ? "" : "group-hover:stroke-[#FF8829]"} mr-2`}
+      />
+      <span
+        className={`${pathname === href ? "" : "group-hover:text-[#FF8829]"} text-2xl`}
       >
-         <ChevronRight className="opacity-0 group-active:opacity-100"/>
-         <Icon
-            size={24}
-            strokeWidth={2}
-            className="mr-2 group-hover:not-group-active:stroke-[#FF8829]"
-         />
-         <span className="text-2xl group-hover:not-group-active:text-[#FF8829]">{name}</span>
-      </Link>
-   );
+        {name}
+      </span>
+    </Link>
+  );
 }
